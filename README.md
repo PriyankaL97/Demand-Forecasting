@@ -1,4 +1,4 @@
-# Demand Forecasting
+# Electricity Demand Forecasting
 ## Objective
 The objective of this project is to forecast medium-term electricity demand in Austin, Texas, with a one-week-ahead horizon and one-hour resolution. The forecast utilizes historical data spanning from 2002 to 2017 and incorporates both electricity demand and weather data.
 
