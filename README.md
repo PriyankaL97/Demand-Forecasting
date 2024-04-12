@@ -32,7 +32,13 @@ Visualizations of one-week-out forecasts for each model over a span of two weeks
 ![image](https://github.com/PriyankaL97/Demand-Forecasting/assets/166748907/e4c7dd37-29ea-4928-926a-a159ee9ebe77)
 
 ## Conclusion
-In conclusion, the GBR model provides the most accurate forecast for medium-term electricity demand in Austin, Texas, with a one-week-ahead horizon and one-hour resolution, utilizing historical data spanning from 2002 to 2017.
+
+This project considered the issue of forecasting electricity demand at one week intervals with a resolution of one hour. This is an important application for utilities and power plant operators so that they can make informed fuel purchase decisions and schedule maintenece at optimal times. In order to make more accurate forecasts, the original timeseries data was decomposed into monthly averages and hourly residuals. The monthly averages were modeled using a SARIMA model, and the hourly residuals were modeled using three different regression models. Of these, gradient boosting regression showed the best performance on the test set, with a 61% improvement over the baseline persistance model.
+
+The accuracy of the best model (gradient boosting regression) is actually quite good. This model could certainly be used for one-week-out forecasting, at least as a first-order estimate. If a higher accuracy model is required, the authors present two suggestions for further study:
+
+- For both GBR and MLP, only a very rough grid search over hyperparameters was performed, and the possible values of hyperparameters were chosen somewhat arbitrarily. A more thorough investigation of hyperparameters is strongly suggested, especially for MLP.
+- The most obvious features for predicting electricity demand were used in this project: autoregressive features, temporal features, and weather features. A study of where the model is predicting with the lowest accuracies could be interesting, with the hope of finding a pattern which could be fixed with additional features. For example, if one found that the model was consistently under-predicting electricity demand during major sporting events, adding a boolean feature of "major_event" could help improve model accuracy. 
 
 
 
